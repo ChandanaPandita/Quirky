@@ -39,12 +39,12 @@ public class HomeController {
 	return new ModelAndView("home");
 	}
 	//navigates to the signup page
-	@RequestMapping("/signUp")
+	/*@RequestMapping("/signUp")
 	public ModelAndView signUp(){
 		UserModel usermodel=new UserModel();
 	System.out.println("signUp() method called");
 	return new ModelAndView("signUp","user",usermodel);
-	}
+	}*/
 	@RequestMapping("/AsCustomer")
 	public ModelAndView customerCheck (Principal principal) throws JsonGenerationException, JsonMappingException, IOException
 	{
@@ -89,7 +89,7 @@ public class HomeController {
 	}
 	
 	//stores the values in the signup page
-	@RequestMapping("/register")
+	/*@RequestMapping("/register")
 	public ModelAndView register(@Valid@ModelAttribute("user")
 	UserModel user,BindingResult bindingResult)
 	{
@@ -103,7 +103,7 @@ public class HomeController {
 	userservice.addUserModel(user);
 	System.out.println("Saved the details");
 	return new ModelAndView("home");
-	}
+	}*/
 	@RequestMapping("/item")
 	public ModelAndView item(@Valid@ModelAttribute("itemobj")
 	Item item,BindingResult bindingResult)

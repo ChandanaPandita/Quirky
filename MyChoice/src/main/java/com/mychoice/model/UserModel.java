@@ -1,5 +1,7 @@
 package com.mychoice.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +12,9 @@ import javax.persistence.OneToOne;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class UserModel {
+public class UserModel implements Serializable {
+
+	private static final long serialVersionUID = -8191478164514565765L;
 	@Id@GeneratedValue
 	private int id;
 	@NotEmpty(message="Cannot be Empty")

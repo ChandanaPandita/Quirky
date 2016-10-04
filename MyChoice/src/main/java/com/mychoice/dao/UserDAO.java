@@ -7,7 +7,7 @@ import com.mychoice.model.UserModel;
 
 
 public interface UserDAO {
-	void addUserModel(UserModel user);
+	String addUserModel(UserModel user);
     public List<UserModel> viewUsers();
     UserModel getUserByName(String name);
 }

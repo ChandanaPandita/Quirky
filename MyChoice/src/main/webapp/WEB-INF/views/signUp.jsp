@@ -9,7 +9,7 @@
     <!-- action="<c:url value='j_spring_security_check'/>"-->
    
       <table>
-      <form:form action="register" modelAttribute="user"  method="POST">
+      <form:form modelAttribute="user">
       <tr>
            <td style="font-size: 15px">User Name:<form:input path="name" />
            <form:errors path="name" style="color:Red"></form:errors></td> <td><br></br></td>
@@ -24,7 +24,7 @@
          </tr>
          <tr><td><br></br></td></tr>
          <tr><td></td>
-            <td><input type="submit" value="SignUp" /></td>
+            <td><input type="submit" name="_eventId_submit" value="SignUp" /></td>
          </tr>
          </form:form>
           

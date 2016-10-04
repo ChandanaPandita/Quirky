@@ -15,7 +15,20 @@ public class UserDAOImpl implements UserDAO {
     @Autowired
 	SessionFactory sessionFactory;
     //saving the entry of the customer details
-	public void addUserModel(UserModel user){
+    public UserModel initFlow(){
+    	return new UserModel();
+    }
+	public String addUserModel(UserModel user){
+		String status="success";
+		if(user.getName().isEmpty()){
+			status="failure";
+		}
+		if(user.getPassword().isEmpty()){
+			status="failure";
+		}
+		if(user.getEmailid().isEmpty()){
+			status="failure";
+		}
 		System.out.println("Add User");
 		Session session=sessionFactory.getCurrentSession();
 		Transaction transaction=session.beginTransaction();
@@ -27,6 +40,7 @@ public class UserDAOImpl implements UserDAO {
 		session.save(userRole);
 		transaction.commit();
 		System.out.println("Details have been saved");
+		return status;
 	}
 	@SuppressWarnings({ "unchecked", "unused" })
 	@Override
