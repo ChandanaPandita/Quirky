@@ -1,21 +1,22 @@
 package com.mychoice.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mychoice.dao.CartItemDAO;
-import com.mychoice.model.CartItem;
+import com.mychoice.dao.CartDAO;
+import com.mychoice.model.Cart;
 @Service
-public class CartServiceImpl implements CartService {
+public class CartServiceImpl implements CartService{
 
 	@Autowired
-	CartItemDAO cartItemDAO;
-	public void addCart(CartItem cartItem) {
+	CartDAO cartDAO;
+	public Cart getCartById(int id) {
+		return cartDAO.getCartById(id);
 		
-		cartItemDAO.addCart(cartItem);
 	}
-	
-	
+
+	public double totalAmount(int id) {
+		return cartDAO.totalAmount(id);
+	}
 
 }

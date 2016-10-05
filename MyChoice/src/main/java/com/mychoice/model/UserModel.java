@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -25,6 +26,7 @@ public class UserModel implements Serializable {
 	private boolean enabled;
 	@OneToOne
 	@JoinColumn
+	@JsonIgnore
 	private Cart cart;
 	
 	public Cart getCart() {

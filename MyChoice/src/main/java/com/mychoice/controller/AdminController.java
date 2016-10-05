@@ -60,7 +60,7 @@ public class AdminController {
 		System.out.println("Saved");
 		itemService.addItem(item);
 		MultipartFile itemImage = file;
-		Path path = Paths.get("D://workspace//MyChoice//MyChoice//MyChoice//src//main//webapp//WEB-INF//resources//images//"+item.getid()+".jpg");
+		Path path = Paths.get("C://Users//MRuser//pc//MyChoice//src//main//webapp//WEB-INF//resources//images//"+item.getid()+".jpg");
 		
 		if(itemImage !=null && !itemImage.isEmpty())
 		{

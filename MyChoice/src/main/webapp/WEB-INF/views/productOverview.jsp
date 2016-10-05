@@ -4,7 +4,7 @@
 <div class="container">
   <div ng-app="myApp" ng-controller="dataCtrl">
   
-
+<a href="viewCart">View Cart</a>
     <hr></hr>
     <table class="table table-striped">
     <tr>
@@ -18,7 +18,7 @@
               <td>${item.itemName}</td>
            	<td>${item.description}</td>
             <td><img src="resources/images/${item.id}.jpg" style="width:100px;height:100px;"/></td>
-			<td><a href="productOverview?id=${item.id}">Add to Cart</a></td> 
+			<td><a href="addingtoCart?id=${item.id}">Add to Cart</a></td> 
 			        
         </tr>    
     </table>

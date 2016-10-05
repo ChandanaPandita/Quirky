@@ -1,13 +1,13 @@
 package com.mychoice.model;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
 public class CartItem {
@@ -20,6 +20,7 @@ public class CartItem {
 	private double CheckoutBill;
 	@ManyToOne
 	@JoinColumn(name="cartId")
+	@JsonIgnore
 	private Cart cart;
 	public Cart getCart() {
 		return cart;

@@ -1,10 +1,11 @@
-package com.mychoice.dao;
+package com.mychoice.service;
 
 import java.util.List;
 
 import com.mychoice.model.CartItem;
 
-public interface CartItemDAO {
+
+public interface CartItemService {
 
 	void addCart(CartItem cartItem); 
 	

@@ -2,7 +2,6 @@ package com.mychoice.model;
 
 import java.util.List;
 
-import javax.annotation.Generated;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 @Entity
 public class Cart {
 	@Id@GeneratedValue
@@ -18,6 +19,7 @@ public class Cart {
 	private int TotalBill;
 	@OneToOne
 	@JoinColumn(name="id")
+	@JsonIgnore
 	private UserModel usermodel;
 	
 	@OneToMany(mappedBy="cart", cascade=CascadeType.ALL,fetch=FetchType.EAGER)

@@ -2,12 +2,15 @@ package com.mychoice.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.mychoice.model.Cart;
 import com.mychoice.model.UserModel;
 import com.mychoice.model.UserRole;
 @Repository
@@ -38,6 +41,10 @@ public class UserDAOImpl implements UserDAO {
 		userRole.setAuthority("ROLE_USER");
 		userRole.setUserId(user.getId());
 		session.save(userRole);
+		Cart cart=new Cart();
+		user.setCart(cart);
+		cart.setUsermodel(user);
+		session.save(cart);
 		transaction.commit();
 		System.out.println("Details have been saved");
 		return status;
@@ -51,12 +58,15 @@ public class UserDAOImpl implements UserDAO {
 		return list;
 	}
 	
+	
 	public UserModel getUserByName(String name) {
 		Session session=sessionFactory.getCurrentSession();
 		Transaction transaction=session.beginTransaction();
-		UserModel usermodel=(UserModel)session.createCriteria(UserModel.class).list();
+		Query query=session.createQuery("from UserModel where name=?");
+		query.setString(0, name);
+		UserModel userModel=(UserModel) query.uniqueResult();
 		transaction.commit();
-		return usermodel;
+		return userModel;
 	}
 		
 }

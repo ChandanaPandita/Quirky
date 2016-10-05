@@ -1,9 +1,10 @@
 package com.mychoice.service;
 
-import com.mychoice.model.CartItem;
-
+import com.mychoice.model.Cart;
 
 public interface CartService {
 
-	void addCart(CartItem cartItem); 
+public Cart getCartById(int id);
+	
+public double totalAmount(int id);
 }

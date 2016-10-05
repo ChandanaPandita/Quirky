@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService{
 			return list;
 		}
 
-		@Override
+		
 		public UserModel getUserByName(String name) {
 			
 			return userDAO.getUserByName(name);
